@@ -42,11 +42,22 @@ namespace Customer.Controllers
         public ActionResult Address(Entity.CustomerAddress obj)
         {
             BusinessLogic.CustomAddresManager.Insert(obj);
-            return View();
+            return View("Results");
         }
         public ActionResult Results()
         {
             return View();
+        }
+        public ActionResult CustomerDetails(Guid ID)
+        {   
+            if (ID == Guid.Empty)
+            {
+                RedirectToAction("Index");
+            }
+
+            var customer = BusinessLogic.CustomerManager.GetById(ID);
+
+            return View(customer);
         }
     }
 }

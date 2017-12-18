@@ -7,7 +7,7 @@ namespace Customer.DataLayer
     {
         public static void Insert(Entity.CustomerAddress obj)
         {
-            using (var model = new Entity.SeguroEntities())
+            using (var model = new Entity.SeguroEntities1())
             {
                 model.Entry<Entity.CustomerAddress>(obj).State = System.Data.Entity.EntityState.Added;
                 model.SaveChanges();
@@ -15,7 +15,7 @@ namespace Customer.DataLayer
         }
         public static void Update(Entity.CustomerAddress obj)
         {
-            using (var model = new Entity.SeguroEntities())
+            using (var model = new Entity.SeguroEntities1())
             {
                 model.Entry<Entity.CustomerAddress>(obj).State = System.Data.Entity.EntityState.Modified;
                 model.SaveChanges();
@@ -23,7 +23,7 @@ namespace Customer.DataLayer
         }
         public static Entity.CustomerAddress GetById(int id)
         {
-            using (var model = new Entity.SeguroEntities())
+            using (var model = new Entity.SeguroEntities1())
             {
                 var result = (from c in model.CustomerAddresses where c.CustomerId == id select c);
                 return result.FirstOrDefault();
@@ -32,7 +32,7 @@ namespace Customer.DataLayer
 
         public static List<Entity.CustomerAddress> GetByAll()
         {
-            using (var model = new Entity.SeguroEntities())
+            using (var model = new Entity.SeguroEntities1())
             {
                 var result = (from c in model.CustomerAddresses select c);
                 return result.ToList();

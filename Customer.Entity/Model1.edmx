@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="SeguroModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="SeguroModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="City">
           <Key>
             <PropertyRef Name="CityId" />
@@ -39,17 +39,7 @@
           <Property Name="ZipCode" Type="varchar" MaxLength="10" />
           <Property Name="CustomerId" Type="int" />
         </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="principal_id" Type="int" Nullable="false" />
-          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="version" Type="int" />
-          <Property Name="definition" Type="varbinary(max)" />
-        </EntityType>
-        <Association Name="FK__CustomerA__CityI__173876EA">
+        <Association Name="FK__CustomerA__CityI__145C0A3F">
           <End Role="City" Type="Self.City" Multiplicity="0..1" />
           <End Role="CustomerAddress" Type="Self.CustomerAddress" Multiplicity="*" />
           <ReferentialConstraint>
@@ -61,7 +51,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CustomerA__Custo__22AA2996">
+        <Association Name="FK__CustomerA__Custo__15502E78">
           <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
           <End Role="CustomerAddress" Type="Self.CustomerAddress" Multiplicity="*" />
           <ReferentialConstraint>
@@ -77,17 +67,17 @@
           <EntitySet Name="City" EntityType="Self.City" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CustomerAddress" EntityType="Self.CustomerAddress" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__CustomerA__CityI__173876EA" Association="Self.FK__CustomerA__CityI__173876EA">
+          <AssociationSet Name="FK__CustomerA__CityI__145C0A3F" Association="Self.FK__CustomerA__CityI__145C0A3F">
             <End Role="City" EntitySet="City" />
             <End Role="CustomerAddress" EntitySet="CustomerAddress" />
           </AssociationSet>
-          <AssociationSet Name="FK__CustomerA__Custo__22AA2996" Association="Self.FK__CustomerA__Custo__22AA2996">
+          <AssociationSet Name="FK__CustomerA__Custo__15502E78" Association="Self.FK__CustomerA__Custo__15502E78">
             <End Role="Customer" EntitySet="Customer" />
             <End Role="CustomerAddress" EntitySet="CustomerAddress" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="SeguroModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -97,32 +87,8 @@
           </Key>
           <Property Name="CityId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="CityDesc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="CustomerAddresses" Relationship="SeguroModel.FK__CustomerA__CityI__173876EA" FromRole="City" ToRole="CustomerAddress" />
+          <NavigationProperty Name="CustomerAddresses" Relationship="Self.FK__CustomerA__CityI__145C0A3F" FromRole="City" ToRole="CustomerAddress" />
         </EntityType>
-        <EntityType Name="sysdiagram">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-        </EntityType>
-        <EntityContainer Name="SeguroEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Cities" EntityType="Self.City" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
-          <EntitySet Name="Customers" EntityType="SeguroModel.Customer" />
-          <EntitySet Name="CustomerAddresses" EntityType="SeguroModel.CustomerAddress" />
-          <AssociationSet Name="FK__CustomerA__CityI__173876EA" Association="SeguroModel.FK__CustomerA__CityI__173876EA">
-            <End Role="City" EntitySet="Cities" />
-            <End Role="CustomerAddress" EntitySet="CustomerAddresses" />
-          </AssociationSet>
-          <AssociationSet Name="FK__CustomerA__Custo__22AA2996" Association="SeguroModel.FK__CustomerA__Custo__22AA2996">
-            <End Role="Customer" EntitySet="Customers" />
-            <End Role="CustomerAddress" EntitySet="CustomerAddresses" />
-          </AssociationSet>
-          </EntityContainer>
         <EntityType Name="Customer">
           <Key>
             <PropertyRef Name="CustomerId" />
@@ -137,8 +103,8 @@
           <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="CelPhone" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
           <Property Name="Email" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="CustomerAddresses" Relationship="SeguroModel.FK__CustomerA__Custo__22AA2996" FromRole="Customer" ToRole="CustomerAddress" />
           <Property Name="ID" Type="Guid" />
+          <NavigationProperty Name="CustomerAddresses" Relationship="Self.FK__CustomerA__Custo__15502E78" FromRole="Customer" ToRole="CustomerAddress" />
         </EntityType>
         <EntityType Name="CustomerAddress">
           <Key>
@@ -150,12 +116,12 @@
           <Property Name="CityId" Type="Int32" />
           <Property Name="ZipCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="CustomerId" Type="Int32" />
-          <NavigationProperty Name="City" Relationship="SeguroModel.FK__CustomerA__CityI__173876EA" FromRole="CustomerAddress" ToRole="City" />
-          <NavigationProperty Name="Customer" Relationship="SeguroModel.FK__CustomerA__Custo__22AA2996" FromRole="CustomerAddress" ToRole="Customer" />
+          <NavigationProperty Name="City" Relationship="Self.FK__CustomerA__CityI__145C0A3F" FromRole="CustomerAddress" ToRole="City" />
+          <NavigationProperty Name="Customer" Relationship="Self.FK__CustomerA__Custo__15502E78" FromRole="CustomerAddress" ToRole="Customer" />
         </EntityType>
-        <Association Name="FK__CustomerA__CityI__173876EA">
-          <End Type="SeguroModel.City" Role="City" Multiplicity="0..1" />
-          <End Type="SeguroModel.CustomerAddress" Role="CustomerAddress" Multiplicity="*" />
+        <Association Name="FK__CustomerA__CityI__145C0A3F">
+          <End Role="City" Type="Self.City" Multiplicity="0..1" />
+          <End Role="CustomerAddress" Type="Self.CustomerAddress" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="City">
               <PropertyRef Name="CityId" />
@@ -165,9 +131,9 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CustomerA__Custo__22AA2996">
-          <End Type="SeguroModel.Customer" Role="Customer" Multiplicity="0..1" />
-          <End Type="SeguroModel.CustomerAddress" Role="CustomerAddress" Multiplicity="*" />
+        <Association Name="FK__CustomerA__Custo__15502E78">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
+          <End Role="CustomerAddress" Type="Self.CustomerAddress" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Customer">
               <PropertyRef Name="CustomerId" />
@@ -177,12 +143,25 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        </Schema>
+        <EntityContainer Name="SeguroEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Cities" EntityType="Self.City" />
+          <EntitySet Name="Customers" EntityType="Self.Customer" />
+          <EntitySet Name="CustomerAddresses" EntityType="Self.CustomerAddress" />
+          <AssociationSet Name="FK__CustomerA__CityI__145C0A3F" Association="Self.FK__CustomerA__CityI__145C0A3F">
+            <End Role="City" EntitySet="Cities" />
+            <End Role="CustomerAddress" EntitySet="CustomerAddresses" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CustomerA__Custo__15502E78" Association="Self.FK__CustomerA__Custo__15502E78">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="CustomerAddress" EntitySet="CustomerAddresses" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="SeguroModelStoreContainer" CdmEntityContainer="SeguroEntities">
+        <EntityContainerMapping StorageEntityContainer="SeguroModelStoreContainer" CdmEntityContainer="SeguroEntities1">
           <EntitySetMapping Name="Cities">
             <EntityTypeMapping TypeName="SeguroModel.City">
               <MappingFragment StoreEntitySet="City">
@@ -191,43 +170,32 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="SeguroModel.sysdiagram">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="definition" ColumnName="definition" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Customers">
             <EntityTypeMapping TypeName="SeguroModel.Customer">
               <MappingFragment StoreEntitySet="Customer">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="CelPhone" ColumnName="CelPhone" />
-                <ScalarProperty Name="Phone" ColumnName="Phone" />
-                <ScalarProperty Name="Age" ColumnName="Age" />
-                <ScalarProperty Name="Birthday" ColumnName="Birthday" />
-                <ScalarProperty Name="LastName2" ColumnName="LastName2" />
-                <ScalarProperty Name="LastName" ColumnName="LastName" />
-                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
-                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
                 <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="LastName2" ColumnName="LastName2" />
+                <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="CelPhone" ColumnName="CelPhone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="CustomerAddresses">
             <EntityTypeMapping TypeName="SeguroModel.CustomerAddress">
               <MappingFragment StoreEntitySet="CustomerAddress">
-                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
-                <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
-                <ScalarProperty Name="CityId" ColumnName="CityId" />
-                <ScalarProperty Name="Address2" ColumnName="Address2" />
-                <ScalarProperty Name="Address1" ColumnName="Address1" />
                 <ScalarProperty Name="CustomerAddresId" ColumnName="CustomerAddresId" />
+                <ScalarProperty Name="Address1" ColumnName="Address1" />
+                <ScalarProperty Name="Address2" ColumnName="Address2" />
+                <ScalarProperty Name="CityId" ColumnName="CityId" />
+                <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

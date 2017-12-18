@@ -13,10 +13,10 @@ namespace Customer.Entity
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class SeguroEntities : DbContext
+    public partial class SeguroEntities1 : DbContext
     {
-        public SeguroEntities()
-            : base("name=SeguroEntities")
+        public SeguroEntities1()
+            : base("name=SeguroEntities1")
         {
         }
     
@@ -26,7 +26,6 @@ namespace Customer.Entity
         }
     
         public virtual DbSet<City> Cities { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<Customer> Customers { get; set; }
         public virtual DbSet<CustomerAddress> CustomerAddresses { get; set; }
     }

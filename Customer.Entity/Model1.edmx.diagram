@@ -4,14 +4,13 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="fc99f64af4ac4e1ea6a3d5774717228f" Name="Diagram1">
+      <Diagram DiagramId="6f9b84d6735d44178a4100e31e9067a7" Name="Diagram1">
         <EntityTypeShape EntityType="SeguroModel.City" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="SeguroModel.sysdiagram" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SeguroModel.Customer" Width="1.5" PointX="0.75" PointY="8" />
-        <EntityTypeShape EntityType="SeguroModel.CustomerAddress" Width="1.5" PointX="3" PointY="0.875" />
-        <AssociationConnector Association="SeguroModel.FK__CustomerA__CityI__173876EA" />
-        <AssociationConnector Association="SeguroModel.FK__CustomerA__Custo__22AA2996" />
-        </Diagram>
+        <EntityTypeShape EntityType="SeguroModel.Customer" Width="1.5" PointX="0.75" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SeguroModel.CustomerAddress" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <AssociationConnector Association="SeguroModel.FK__CustomerA__CityI__145C0A3F" ManuallyRouted="false" />
+        <AssociationConnector Association="SeguroModel.FK__CustomerA__Custo__15502E78" ManuallyRouted="false" />
+      </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>
