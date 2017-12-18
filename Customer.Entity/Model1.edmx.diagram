@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="fc99f64af4ac4e1ea6a3d5774717228f" Name="Diagram1">
+        <EntityTypeShape EntityType="SeguroModel.City" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SeguroModel.sysdiagram" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SeguroModel.Customer" Width="1.5" PointX="0.75" PointY="8" />
+        <EntityTypeShape EntityType="SeguroModel.CustomerAddress" Width="1.5" PointX="3" PointY="0.875" />
+        <AssociationConnector Association="SeguroModel.FK__CustomerA__CityI__173876EA" />
+        <AssociationConnector Association="SeguroModel.FK__CustomerA__Custo__22AA2996" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
