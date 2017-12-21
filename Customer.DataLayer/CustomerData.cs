@@ -28,7 +28,9 @@ namespace Customer.DataLayer
         {
             using (var model = new Entity.SeguroEntities1())
             {
-                var result = (from c in model.Customers where c.ID == id select c);
+                model.Configuration.ProxyCreationEnabled = false;
+                var result = (from c in model.Customers
+                              .Include(c => c.CustomerAddresses) where c.ID == id select c);
                 return result.FirstOrDefault();
             }
         }

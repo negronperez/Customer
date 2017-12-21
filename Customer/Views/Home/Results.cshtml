@@ -29,7 +29,7 @@
                         foreach (var item in list)
                         {
                     <tr>
-                        <td>@Html.ActionLink("Customer Details", "CustomerDetails", new { id = @item.ID })</td>
+                        <td>@Html.ActionLink("Edit", "CustomerDetails", new { id = @item.ID })</td>
                         <td>@item.FirstName</td>
                         <td>@item.MiddleName</td>
                         <td>@item.LastName</td>

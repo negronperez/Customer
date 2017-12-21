@@ -32,6 +32,7 @@ namespace Customer.Controllers
             }
 
             var customer = BusinessLogic.CustomerManager.GetById(id);
+           // ViewBag["City"] = BusinessLogic.CustomAddresManager
 
             return View(new Entity.CustomerAddress()
             {
@@ -41,7 +42,7 @@ namespace Customer.Controllers
         [HttpPost]
         public ActionResult Address(Entity.CustomerAddress obj)
         {
-            BusinessLogic.CustomAddresManager.Insert(obj);
+            BusinessLogic.CustomAddresManager.Insert(obj);            
             return View("Results");
         }
         public ActionResult Results()
@@ -54,10 +55,21 @@ namespace Customer.Controllers
             {
                 RedirectToAction("Index");
             }
-
             var customer = BusinessLogic.CustomerManager.GetById(ID);
 
             return View(customer);
+        }
+        [HttpPost]
+        public ActionResult CustomerDetails(Entity.Customer obj)
+        {
+            if (!ModelState.IsValid)
+            {
+                RedirectToAction("Index");
+            }
+
+            BusinessLogic.CustomerManager.Update(obj);
+
+            return View("Results");
         }
     }
 }
